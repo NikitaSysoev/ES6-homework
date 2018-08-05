@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task_5.2</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
+</head>
+<body>
+<script type="text/babel">
+    const getElement = (url, number) => {
+        return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', url + number, true);
+            xhr.onload = () => resolve(xhr.responseText);
+            xhr.onerror = () => reject(xhr.statusText);
+            xhr.send();
+        });
+    };
+
+    const promiseAll = [];
+    for (let i = 0; i < 10; i++) {
+        promiseAll[i] = new Promise((resolve) => {
+            resolve(getElement('https://jsonplaceholder.typicode.com/users/', i + 1));
+        });
+    }
+
+    Promise.all(promiseAll)
+        .then(result => {
+                console.log(result);
+            }
+        );
+</script>
+</body>
+</html>

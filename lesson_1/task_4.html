@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task_4</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
+</head>
+<body>
+<script type="text/babel">
+    function* form() {
+        let name, age, salary, company;
+        yield  name = prompt('Введите свое имя');
+        yield age = prompt('Введите свой возраст');
+        yield salary = prompt('Введите свою зарплату в долларах США');
+        yield company = prompt('Введите компанию');
+        yield console.log({name, age, salary, company});
+    };
+
+    const it = form();
+    it.next(); // запрашиваем имя
+    it.next(); // запрашиваем возраст
+    it.next(); // запрашиваем деньги
+    it.next(); // запрашиваем компанию
+    it.next(); // выводим результат в консоли
+</script>
+</body>
+</html>

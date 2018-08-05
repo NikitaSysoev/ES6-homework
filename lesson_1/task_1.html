@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task_1</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<script type="text/babel">
+
+    const loop = (times = 0, callback = null) => {
+        if (callback && typeof(callback) === 'function') {
+            for (let i = 0; i < times; i++) {
+                callback();
+            }
+        } else {
+            console.log('Вы вторым аргументом передали НЕ функцию')
+        }
+    };
+
+
+    let x = 1;
+    const sum = () => {
+        console.log(x++);
+    };
+
+    loop(5, sum);
+</script>
+</body>
+</html>

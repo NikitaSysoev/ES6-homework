@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task_3</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<script type="text/babel">
+    class Human {
+        constructor(name, age, dateOfBirth) {
+            this.name = name;
+            this.age = age;
+            this.dateOfBirth = dateOfBirth;
+        }
+
+        displayInfo() {
+            return `Имя - ${this.name}, Возраст - ${this.age}, День Рождения - ${this.dateOfBirth}`;
+        }
+    };
+
+    class Employee extends Human {
+        constructor(name, age, dateOfBirth, salary, department) {
+            super(name, age, dateOfBirth);
+            this.salary = salary;
+            this.department = department;
+        }
+
+        displayInfo() {
+            return `${super.displayInfo()}, Зарплата - $${this.salary}, Отдел - ${this.department}`;
+        }
+    };
+
+
+    class Manager extends Employee {
+        constructor(name, age, dateOfBirth, salary, department) {
+            super(name, age, dateOfBirth, salary, department);
+            this.developers = [];
+        }
+
+        displayInfo() {
+            console.log(this.developers);
+            return super.displayInfo();
+        }
+
+        add(developer) {
+            if (this.developers.includes(developer)) {
+                return false;
+            }
+            this.developers.push(developer);
+            return true;
+        }
+
+        delete(developer) {
+            if (this.developers.includes(developer)) {
+                const index = this.developers.indexOf(developer);
+                this.developers.splice(index, 1);
+                return true;
+            }
+            return false;
+        }
+    };
+
+
+    class Developer extends Employee {
+        constructor(name, age, dateOfBirth, salary, department) {
+            super(name, age, dateOfBirth, salary, department);
+        }
+
+        displayInfo() {
+            return super.displayInfo();
+        }
+
+        changeManager(oldManager, newManager) {
+            if (oldManager.developers.includes(this)) {
+                oldManager.delete(this);
+                newManager.add(this);
+                return true;
+            }
+            return false;
+        }
+    };
+
+    window.onload = () => {
+        // Создаем 1 человека
+        const human1 = new Human('Антон', 28, '01.10.1989');
+        console.log(human1.displayInfo());
+
+        // Создаем 1 сотрудника
+        const employee1 = new Employee('Антон', 28, '01.10.1989', 70, 'Фронтэнд');
+        console.log(employee1.displayInfo());
+
+        // Создаем 2 менеджеров
+        const manager1 = new Manager('Анфиса', 32, '12.09.1985', 100, 'Фронтэнд');
+        const manager2 = new Manager('Сергей', 42, '09.04.1976', 110, 'Бекенд');
+        // Создаем 2 разработчиков
+        const developer1 = new Developer('Вася', 35, '13.12.1981', 120, 'Фронтенд');
+        const developer2 = new Developer('Никита', 26, '03.10.1991', 100, 'Фронтенд');
+
+        // Добавляем менеджеру двух разработчиков
+        manager1.add(developer1);
+        manager1.add(developer2);
+
+        // переводим разработчика2 от менеджера1 к менеджеру2
+        developer1.changeManager(manager1, manager2);
+        manager1.displayInfo();
+        manager2.displayInfo();
+    };
+</script>
+</body>
+</html>

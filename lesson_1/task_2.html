@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task_2</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<form>
+    <p>
+        <b>Введите сторону a:</b><Br>
+        <input id="a" type="text">
+    </p>
+    <p>
+        <b>Введите сторону b, если она есть:</b><Br>
+        <input id="b" type="text">
+    </p>
+    <p>
+        <b>Введите высоту h, если она есть:</b><Br>
+        <input id="h" type="text">
+    </p>
+    <button id="getResult">Высчитать</button>
+</form>
+<hr>
+<div id="result"></div>
+<script type="text/babel">
+    let calculateArea = (props) => {
+        const {a, b, h} = props;
+        const params = {
+            area: 0,
+            figure: '',
+            input: {a, b, h}
+        };
+
+        if ((a && !b) || (a === b) && !h) {
+            params.figure = 'Квадрат';
+            params.area = a * a;
+        }
+
+        if ((!a && b) && !h) {
+            params.figure = 'Квадрат';
+            params.area = b * b;
+        }
+
+        if (a && b && (a !== b) && !h) {
+            params.figure = 'Прямоугольник';
+            params.area = a * b;
+        }
+
+        if (a && b && h) {
+            params.figure = 'Трапеция';
+            params.area = 0.5 * h * (a + b);
+        }
+
+        if (a && !b && h) {
+            params.figure = 'Треугольник';
+            params.area = 0.5 * h * a;
+        }
+
+        if (!a && b && h) {
+            params.figure = 'Треугольник';
+            params.area = 0.5 * h * b;
+        }
+
+        if (!a && !b && !h) {
+            params.figure = '';
+        }
+
+        return params;
+    };
+
+    window.onload = () => {
+        document.getElementById('getResult').addEventListener('click', () => {
+            event.preventDefault();
+            let a = document.getElementById('a').value;
+            let b = document.getElementById('b').value;
+            let h = document.getElementById('h').value;
+            const input = {a, b, h};
+            const result = calculateArea(input);
+            document.getElementById('result').innerHTML = `<p>Фигура - ${result.figure}<br>
+                                                           Площадь фигуры = ${result.area}<br>
+                                                           сторона а = ${result.input.a}<br>
+                                                           сторона b = ${result.input.b}<br>
+                                                           сторона h = ${result.input.h}</p>`;
+
+        });
+    };
+</script>
+</body>
+</html>
