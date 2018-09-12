@@ -134,10 +134,12 @@ body {
 
 .input-login-name {
     margin-bottom: 15px;
+	display: block;
 }
 
 .input-login-pass {
     margin-bottom: 10px;
+display: block;
 }
 
 .login-form-header-rememberme {
@@ -213,4 +215,6 @@ body {
     background-color: rgb(34, 171, 241);
     color: #fff;
 }
+
+
 
