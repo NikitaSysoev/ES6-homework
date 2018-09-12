@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: RGB(134, 200, 198);
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+.header {
+    height: 50px;
+}
+
+.footer {
+    height: 50px;
+}
+
+.login-form {
+    border-radius: 5px;
+    width: 350px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-weight: bold;
+    background-color: RGB(250, 250, 250);
+}
+
+.login-form-header {
+    border-radius: 5px;
+    padding: 0 40px 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: RGB(255, 255, 255);
+}
+
+.login-form-header h3 {
+    margin-bottom: 20px;
+}
+
+.input-login-name input {
+    padding-left: 40px;
+    border-radius: 5px;
+    height: 35px;
+}
+
+.input-login-pass input {
+    padding-left: 40px;
+    height: 40px;
+}
+
+.login-form-middle {
+    padding: 25px 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-form-middle .border {
+    margin-top: 40px;
+    border-bottom: 1px solid RGB(217, 217, 217);
+}
+
+.login-form-middle p {
+    margin-bottom: 30px;
+}
+
+.login-form-bottom {
+    padding: 0 40px;
+}
+
+.login-form h3 {
+    font-weight: bolder;
+}
+
+.login-form h4 {
+    font-weight: bolder;
+    margin: 0 0 3px;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-lgn {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-stl, .btn-stl:hover, .btn-stl:focus, .btn-stl:active, .btn-stl:focus:active {
+    background-color: RGB(47, 192, 189);
+    outline: none;
+    color: #fff;
+}
+
+.login-form-header .btn-stl {
+    /*width: 70px;*/
+    height: 30px;
+    line-height: 16px;
+    padding: 0 17px;
+}
+
+.login-form-social {
+    background-color: RGB(250, 250, 250);
+}
+
+.input-login-name {
+    margin-bottom: 15px;
+}
+
+.input-login-pass {
+    margin-bottom: 10px;
+}
+
+.login-form-header-rememberme {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-form-header-rememberme p {
+    color: RGB(185, 185, 185);
+    font-weight: 500;
+}
+
+.login-form-header-rememberme a {
+    text-decoration: none;
+    color: RGB(217, 40, 58);
+}
+
+.login-form-footer span {
+    color: RGB(217, 40, 58);
+}
+
+.login-form-footer .btn-stl {
+    /*width: 110px;*/
+    padding: 0 20px;
+    height: 30px;
+    line-height: 15px;
+    text-transform: uppercase;
+}
+
+.login-form-footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-control:focus {
+    border-color: RGB(134, 200, 198);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px RGBA(134, 200, 198, .6);
+}
+
+.login-form-header-rememberme div {
+    display: flex;
+}
+
+.login-form-header-rememberme p {
+    margin-left: 5px;
+}
+
+.btn-socnet {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-socnet button {
+    width: 100%;
+    margin-right: 5px;
+}
+
+.btn-socnet button:last-child {
+    margin-right: 0;
+}
+
+.btn-google {
+    background-color: rgb(211, 71, 56);
+    color: #fff;
+}
+
+.btn-facebook {
+    background-color: rgb(63, 89, 146);
+    color: #fff;
+}
+
+.btn-twitter {
+    background-color: rgb(34, 171, 241);
+    color: #fff;
+}
+
