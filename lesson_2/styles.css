@@ -9,39 +9,39 @@ html, body {
 }
 
 body {
-    background-color: RGB(134, 200, 198);
+    background-color: rgb(134, 200, 198);
 }
 
-.app {
+.ssls-app {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
 
-.flex-center {
+.ssls-center {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.flex-column {
+.ssls-column {
     display: flex;
     flex-direction: column;
 }
 
-.content {
+.ssls-content {
     flex: 1;
 }
 
-.header {
+.ssls-header {
     height: 50px;
 }
 
-.footer {
+.ssls-footer {
     height: 50px;
 }
 
-.login-form {
+.ssls-login-form {
     border-radius: 5px;
     width: 350px;
     margin: 10px auto;
@@ -49,172 +49,179 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     font-weight: bold;
-    background-color: RGB(250, 250, 250);
+    background-color: rgb(250, 250, 250);
 }
 
-.login-form-header {
+.ssls-login-form input:focus {
+    border-color: rgb(134, 200, 198);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(134, 200, 198, .6);
+}
+
+.ssls-form-control:focus {
+    outline: none;
+}
+
+.ssls-login-form-header {
     border-radius: 5px;
     padding: 0 40px 30px;
     display: flex;
     flex-direction: column;
-    background-color: RGB(255, 255, 255);
+    background-color: rgb(255, 255, 255);
 }
 
-.login-form-header h3 {
-    margin-bottom: 20px;
+.ssls-login-form-header h1 {
+    margin: 20px 0;
 }
 
-.input-login-name input {
+.ssls-form-control {
     padding-left: 40px;
     border-radius: 5px;
+    border: 1px solid rgb(185, 185, 185);
+}
+
+.ssls-name {
     height: 35px;
 }
 
-.input-login-pass input {
-    padding-left: 40px;
+.ssls-password {
     height: 40px;
 }
 
-.login-form-middle {
+.ssls-column input:not(:first-child) {
+    margin-top: 15px;
+}
+
+.ssls-column input:last-child {
+    margin-bottom: 10px;
+}
+
+.ssls-login-form-middle {
     padding: 25px 20px 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.login-form-middle .border {
+.ssls-login-form-middle .ssls-border {
     margin-top: 40px;
-    border-bottom: 1px solid RGB(217, 217, 217);
+    border-bottom: 1px solid rgb(217, 217, 217);
 }
 
-.login-form-middle p {
+.ssls-login-form-middle p {
     margin-bottom: 30px;
 }
 
-.login-form-bottom {
+.ssls-login-form-bottom {
     padding: 0 40px;
 }
 
-.login-form h3 {
+.ssls-login-form h1 {
     font-weight: bolder;
 }
 
-.login-form h4 {
+.ssls-login-form h2 {
     font-weight: bolder;
     margin: 0 0 3px;
 }
 
-.flex-between {
+.ssls-between {
     display: flex;
     justify-content: space-between;
 }
 
-.btn-lgn {
-    margin-top: 5px;
+.ssls-btn-group {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 }
 
-.btn-stl, .btn-stl:hover, .btn-stl:focus, .btn-stl:active, .btn-stl:focus:active {
-    background-color: RGB(47, 192, 189);
+.ssls-btn, .ssls-btn:hover, .ssls-btn:focus, .ssls-btn:active, .ssls-btn:focus:active {
+    background-color: rgb(47, 192, 189);
     outline: none;
     color: #fff;
 }
 
-.login-form-header .btn-stl {
-    /*width: 70px;*/
+.ssls-btn {
+    border-radius: 5px;
+    border: 1px solid rgb(47, 192, 189);
+    cursor: pointer;
+}
+
+.ssls-login-form-header .ssls-btn {
     height: 30px;
     line-height: 16px;
     padding: 0 17px;
 }
 
-.login-form-social {
-    background-color: RGB(250, 250, 250);
+.ssls-social {
+    background-color: rgb(250, 250, 250);
 }
 
-.input-login-name {
-    margin-bottom: 15px;
-	display: block;
-}
-
-.input-login-pass {
-    margin-bottom: 10px;
-display: block;
-}
-
-.login-form-header-rememberme {
-    display: flex;
-    justify-content: space-between;
-}
-
-.login-form-header-rememberme p {
-    color: RGB(185, 185, 185);
+.ssls-remember p {
+    color: rgb(185, 185, 185);
     font-weight: 500;
 }
 
-.login-form-header-rememberme a {
+.ssls-remember a {
     text-decoration: none;
-    color: RGB(217, 40, 58);
+    color: rgb(217, 40, 58);
 }
 
-.login-form-footer span {
-    color: RGB(217, 40, 58);
+.ssls-login-form-footer span {
+    color: rgb(217, 40, 58);
 }
 
-.login-form-footer .btn-stl {
-    /*width: 110px;*/
+.ssls-login-form-footer .ssls-btn {
     padding: 0 20px;
     height: 30px;
     line-height: 15px;
     text-transform: uppercase;
 }
 
-.login-form-footer {
+.ssls-login-form-footer {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.form-control:focus {
-    border-color: RGB(134, 200, 198);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px RGBA(134, 200, 198, .6);
-}
-
-.login-form-header-rememberme div {
+.ssls-remember div {
     display: flex;
 }
 
-.login-form-header-rememberme p {
+.ssls-remember p {
     margin-left: 5px;
 }
 
-.btn-socnet {
+.ssls-social {
     display: flex;
     justify-content: space-between;
 }
 
-.btn-socnet button {
+.ssls-social button {
     width: 100%;
     margin-right: 5px;
+    color: #fff;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid;
+    cursor: pointer;
 }
 
-.btn-socnet button:last-child {
+.ssls-social button:focus {
+    outline: none;
+}
+
+.ssls-social button:last-child {
     margin-right: 0;
 }
 
-.btn-google {
+.ssls-btn-google {
     background-color: rgb(211, 71, 56);
-    color: #fff;
 }
 
-.btn-facebook {
+.ssls-btn-facebook {
     background-color: rgb(63, 89, 146);
-    color: #fff;
 }
 
-.btn-twitter {
+.ssls-btn-twitter {
     background-color: rgb(34, 171, 241);
-    color: #fff;
 }
-
-
-
