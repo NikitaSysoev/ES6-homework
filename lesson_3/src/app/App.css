@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%; }
+
+body {
+  background-color: #86c8c6; }
+
+.ssls-app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+  .ssls-app .ssls-content {
+    flex: 1; }
+  .ssls-app .ssls-header {
+    height: 50px; }
+  .ssls-app .ssls-footer {
+    height: 50px; }
+
+/*# sourceMappingURL=App.css.map */
