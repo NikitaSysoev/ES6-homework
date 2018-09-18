@@ -1,0 +1,191 @@
+$primary-color: rgb(134, 200, 198);
+$default-color: #fff;
+$grey-colour:rgb(250, 250, 250);
+
+%ssls-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+%ssls-center {
+  display: flex;
+  justify-content: center;
+}
+
+%ssls-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%ssls-btn {
+  background-color: rgb(47, 192, 189);
+  outline: none;
+  color: $default-color;
+}
+
+.ssls-center {
+  @extend %ssls-center;
+}
+
+.ssls-column {
+  @extend %ssls-column;
+  input:not(:first-child) {
+    margin-top: 15px;
+  }
+  input:last-child {
+    margin-bottom: 10px;
+  }
+}
+
+.ssls-btn-group {
+  @extend %ssls-center;
+  margin-top: 20px;
+  .ssls-btn {
+    border-radius: 5px;
+    outline: none;
+    color: $default-color;
+    border: 1px solid rgb(47, 192, 189);
+    cursor: pointer;
+    &:hover, &:focus, &:active, &:focus:active {
+      background-color: rgb(47, 192, 189);
+      outline: none;
+      color: $default-color;
+    }
+  }
+}
+
+.ssls-form-control {
+  padding-left: 40px;
+  border-radius: 5px;
+  border: 1px solid rgb(185, 185, 185);
+  &:focus {
+    outline: none;
+  }
+}
+
+.ssls-between {
+  @extend %ssls-between;
+}
+
+.ssls-login-form {
+  @extend %ssls-column;
+  border-radius: 5px;
+  width: 350px;
+  margin: 10px auto;
+  flex-wrap: wrap;
+  font-weight: bold;
+  background-color: $grey-colour;
+  input:focus {
+    border-color: rgb(134, 200, 198);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(134, 200, 198, .6);
+  }
+
+  .ssls-btn {
+    padding: 0 20px;
+    height: 30px;
+    line-height: 15px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-weight: bolder;
+  }
+
+  h2 {
+    font-weight: bolder;
+    margin: 0 0 3px;
+  }
+
+  .ssls-login-form-header {
+    border-radius: 5px;
+    padding: 0 40px 30px;
+    @extend %ssls-column;
+    background-color: $default-color;
+    h1 {
+      margin: 20px 0;
+    }
+    .ssls-remember {
+      a {
+        text-decoration: none;
+        color: rgb(217, 40, 58);
+      }
+      div {
+        display: flex;
+        p {
+          color: rgb(185, 185, 185);
+          font-weight: 500;
+          margin-left: 5px;
+        }
+        input {
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+
+  .ssls-btn {
+    @extend %ssls-btn;
+    &:hover, &:focus, &:active, &:focus:active {
+      @extend %ssls-btn;
+    }
+  }
+
+  .ssls-login-form-middle {
+    @extend %ssls-center;
+    padding: 25px 20px 0;
+    flex-direction: column;
+    .ssls-border {
+      margin-top: 40px;
+      border-bottom: 1px solid rgb(217, 217, 217);
+    }
+    p {
+      margin-bottom: 30px;
+    }
+    .ssls-social {
+      @extend %ssls-between;
+      background-color: $grey-colour;
+      button {
+        width: 100%;
+        margin-right: 5px;
+        color: $default-color;
+        height: 35px;
+        border-radius: 5px;
+        border: 1px solid;
+        cursor: pointer;
+      }
+      button:focus {
+        outline: none;
+      }
+      button:last-child {
+        margin-right: 0;
+      }
+      .ssls-btn-google {
+        background-color: rgb(211, 71, 56);
+      }
+
+      .ssls-btn-facebook {
+        background-color: rgb(63, 89, 146);
+      }
+
+      .ssls-btn-twitter {
+        background-color: rgb(34, 171, 241);
+      }
+    }
+  }
+
+  .ssls-login-form-footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    span {
+      color: rgb(217, 40, 58);
+    }
+  }
+
+  .ssls-name {
+    height: 35px;
+  }
+
+  .ssls-password {
+    height: 40px;
+  }
+}
