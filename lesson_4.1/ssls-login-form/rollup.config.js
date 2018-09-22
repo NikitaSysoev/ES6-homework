@@ -4,32 +4,35 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
 import scss from 'rollup-plugin-scss';
-import server from 'rollup-plugin-server';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import builtins from 'rollup-plugin-node-builtins';
+import globals from 'rollup-plugin-node-globals';
 
 export default {
+    external: ['react'],
     input: 'src/LoginForm/LoginForm.jsx',
     output: {
-        file: 'dist/bundle.js',
-        format: 'umd',
+        file: 'dist/index.js',
+        format: 'es',
         name: 'LoginForm',
         sourceMap: 'inline',
         globals: {
-            React: 'React',
-            ReactDOM: 'ReactDOM'
-        }
+            'react': 'React'
+        },
     },
     plugins: [
+        globals(),
+        builtins(),
         replace({
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
-        scss(),
+        scss({
+            output: 'dist/css/bundle.css',
+        }),
         resolve({
             jsnext: true,
             main: true,
             browser: true,
-            extensions: ['.js', '.jsx'],
+            extensions: ['.jsx', '.js'],
         }),
         commonjs(
             {
@@ -40,7 +43,7 @@ export default {
             }
         ),
         babel({
-            exclude: 'node_modules/**',
+            exclude: 'node_modules/**'
         }),
         uglify(),
     ],
