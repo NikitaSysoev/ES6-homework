@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 
 import './App.scss';
 
-import "../../../ssls-login-form/src/LoginForm/LoginForm.scss";
+// import "../../../ssls-login-form/src/LoginForm/LoginForm.scss";
+// import LoginForm from "../../../ssls-login-form/src/LoginForm/LoginForm.jsx";
 import LoginForm from 'ssls-login-form';
-// import 'ssls-login-form/css';
+import 'ssls-login-form/css';
 
 export default class App extends Component {
     render() {

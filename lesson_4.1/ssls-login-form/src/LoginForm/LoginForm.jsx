@@ -4,50 +4,48 @@ import './LoginForm.scss';
 
 const LoginForm = (props) => {
     return (
-        <div className="sslsLoginForm">
-            <div className="ssls-login-form-header">
-                <div className="ssls-center">
+        <div className="ssls-LoginForm">
+            <div className="ssls-LoginForm-head">
+                <div className="ssls-LoginForm-header">
                     <h1>Login</h1>
                 </div>
-                <div className="ssls-column">
-                    <input type="text" className="ssls-form-control ssls-name" placeholder="User name"/>
-                    <input type="password" className="ssls-form-control ssls-password" placeholder="****"/>
+                <div className="ssls-LoginForm-inputs">
+                    <input type="text" className="ssls-LoginForm-input" placeholder="User name"/>
+                    <input type="password" className="ssls-LoginForm-input" placeholder="****"/>
                 </div>
-                <div className="ssls-remember ssls-between">
+                <div className="ssls-LoginForm-remember">
                     <div>
                         <input type="checkbox"/>
                         <p>Remember Me</p>
                     </div>
                     <a href="#">Forgot Password?</a>
                 </div>
-                <div className="ssls-btn-group">
-                    <button type="button" className="ssls-btn">
-                        Log in
-                    </button>
+                <div className="ssls-LoginForm-btnGroup">
+                    <button type="button" className="ssls-LoginForm-btn">Log in</button>
                 </div>
             </div>
-            <div className="ssls-login-form-middle">
-                <div className="ssls-center">
+            <div className="ssls-LoginForm-middle">
+                <div className="ssls-LoginForm-header">
                     <h2>Login</h2>
                 </div>
-                <div className="ssls-center">
+                <div className="ssls-LoginForm-header">
                     <p>With your social media account</p>
                 </div>
-                <div className="ssls-social">
+                <div className="ssls-LoginForm-social">
                     <button type="button" className="ssls-btn-twitter">Twitter</button>
                     <button type="button" className="ssls-btn-facebook">Facebook</button>
                     <button type="button" className="ssls-btn-google">Google+</button>
                 </div>
-                <div className="ssls-border"/>
+                <div className="ssls-LoginForm-border"/>
             </div>
-            <div className="ssls-login-form-footer">
-                <div className="ssls-center">
-                    <p>Don't have an Account? <span>Register Now!</span></p>
+            <div className="ssls-LoginForm-footer">
+                <div className="ssls-LoginForm-text">
+                    <p>Don't have an Account?
+                        <span> Register Now!</span>
+                    </p>
                 </div>
-                <div className="ssls-btn-group">
-                    <button type="button" className="ssls-btn">
-                        Register
-                    </button>
+                <div className="ssls-LoginForm-btnGroup">
+                    <button type="button" className="ssls-LoginForm-btn">Register</button>
                 </div>
             </div>
         </div>
