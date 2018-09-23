@@ -26,7 +26,7 @@ export default {
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
         scss({
-            output: 'dist/css/bundle.css',
+            output: 'css/bundle.css',
         }),
         resolve({
             jsnext: true,

@@ -1,6 +1,7 @@
 $primary-color: rgb(134, 200, 198);
+$second-color: rgb(47, 192, 189);
 $default-color: #fff;
-$grey-colour:rgb(250, 250, 250);
+$grey-colour: rgb(250, 250, 250);
 
 %ssls-between {
   display: flex;
@@ -44,10 +45,10 @@ $grey-colour:rgb(250, 250, 250);
     border-radius: 5px;
     outline: none;
     color: $default-color;
-    border: 1px solid rgb(47, 192, 189);
+    border: 1px solid $second-color;
     cursor: pointer;
     &:hover, &:focus, &:active, &:focus:active {
-      background-color: rgb(47, 192, 189);
+      background-color: $second-color;
       outline: none;
       color: $default-color;
     }

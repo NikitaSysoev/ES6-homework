@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 
 import './App.scss';
-// import LoginForm from 'ssls-login-form';
+
+import "../../../ssls-login-form/src/LoginForm/LoginForm.scss";
+import LoginForm from 'ssls-login-form';
 // import 'ssls-login-form/css';
 
 export default class App extends Component {
@@ -10,7 +12,7 @@ export default class App extends Component {
             <div className="ssls-app">
                 <header className="ssls-header"/>
                 <div className="ssls-content">
-                    {/*<LoginForm/>*/}
+                    <LoginForm/>
                 </div>
                 <footer className="ssls-footer"/>
             </div>

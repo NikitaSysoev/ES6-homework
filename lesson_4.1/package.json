@@ -4,5 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "workspaces": ["ssls-login-form"]
+  "workspaces": ["ssls-login-form"],
+  "dependencies": {
+    "react": "^16.5.2"
+  }
 }
