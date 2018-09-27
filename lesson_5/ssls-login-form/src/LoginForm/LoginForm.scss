@@ -1,0 +1,182 @@
+$primary-color: rgb(47, 192, 189) !default;
+$second-color: rgb(134, 200, 198) !default;
+$default-color: #fff !default;
+$info-colour: rgb(250, 250, 250) !default;
+$attention-color: rgb(217, 40, 58) !default;
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+%ssls-btn {
+  background-color: $primary-color;
+  outline: none;
+  color: $default-color;
+  text-transform: uppercase;
+  border: 1px solid $primary-color;
+  cursor: pointer;
+  height: 30px;
+  line-height: 15px;
+  border-radius: 5px;
+}
+
+%ssls-form-control {
+  padding-left: 40px;
+  border-radius: 5px;
+  border: 1px solid rgb(185, 185, 185);
+  outline: none;
+  &:focus {
+    border-color: $second-color;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075),
+    0 0 8px rgba(134, 200, 198, .6);
+  }
+}
+
+.ssls-LoginForm {
+  @extend %flex-column;
+  border-radius: 5px;
+  width: 350px;
+  margin: 10px auto;
+  font-weight: bold;
+  background-color: $info-colour;
+  h1, h2 {
+    font-weight: bolder;
+  }
+  h2 {
+    margin: 0 0 3px;
+  }
+
+  .ssls-LoginForm-head {
+    @extend %flex-column;
+    border-radius: 5px;
+    padding: 0 40px 30px;
+    background-color: $default-color;
+    .ssls-LoginForm-header {
+      @extend %flex-center;
+      h1 {
+        margin: 20px 0;
+      }
+    }
+
+    .ssls-LoginForm-inputs {
+      @extend %flex-column;
+      .ssls-LoginForm-input {
+        @extend %ssls-form-control;
+        &:first-child {
+          height: 35px;
+        }
+        &:last-child {
+          height: 40px;
+          margin-bottom: 10px;
+        }
+        &:not(:first-child) {
+          margin-top: 15px;
+        }
+      }
+    }
+
+    .ssls-LoginForm-remember {
+      @extend %flex-between;
+      a {
+        text-decoration: none;
+        color: $attention-color;
+      }
+      div {
+        display: flex;
+        p {
+          color: rgb(185, 185, 185);
+          font-weight: 500;
+          margin-left: 5px;
+        }
+        input {
+          margin-top: 3px;
+        }
+      }
+    }
+    .ssls-LoginForm-btn {
+      padding: 0 10px;
+    }
+  }
+
+  .ssls-LoginForm-btnGroup {
+    @extend %flex-center;
+    margin-top: 20px;
+    .ssls-LoginForm-btn {
+      @extend %ssls-btn;
+      &:hover, &:focus, &:active, &:focus:active {
+        @extend %ssls-btn;
+      }
+    }
+  }
+
+  .ssls-LoginForm-middle {
+    @extend %flex-center;
+    padding: 25px 20px 0;
+    flex-direction: column;
+    .ssls-LoginForm-header {
+      @extend %flex-center;
+      p {
+        margin-bottom: 30px;
+      }
+    }
+
+    .ssls-LoginForm-social {
+      @extend %flex-between;
+      background-color: $info-colour;
+      button {
+        width: 100%;
+        margin-right: 5px;
+        color: $default-color;
+        height: 35px;
+        border-radius: 5px;
+        border: 1px solid;
+        cursor: pointer;
+      }
+      button:focus {
+        outline: none;
+      }
+      button:last-child {
+        margin-right: 0;
+      }
+      .ssls-btn-google {
+        background-color: rgb(211, 71, 56);
+      }
+      .ssls-btn-facebook {
+        background-color: rgb(63, 89, 146);
+      }
+      .ssls-btn-twitter {
+        background-color: rgb(34, 171, 241);
+      }
+    }
+
+    .ssls-LoginForm-border {
+      margin-top: 40px;
+      border-bottom: 1px solid rgb(217, 217, 217);
+    }
+  }
+
+  .ssls-LoginForm-footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .ssls-LoginForm-text {
+      @extend %flex-center;
+      span {
+        color: $attention-color;
+      }
+    }
+    .ssls-LoginForm-btn {
+      padding: 0 20px;
+    }
+  }
+}
