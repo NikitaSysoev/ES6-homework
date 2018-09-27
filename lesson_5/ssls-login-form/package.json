@@ -1,9 +1,9 @@
 {
   "name": "ssls-login-form",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "index.js",
   "license": "MIT",
-  "molule": "dist/index.js",
+  "molule": "index.js",
   "scripts": {
     "build": "rollup -c"
   },

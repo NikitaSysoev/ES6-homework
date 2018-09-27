@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import './LoginForm.scss';
-
 const LoginForm = (props) => {
     return (
         <div className="ssls-LoginForm">

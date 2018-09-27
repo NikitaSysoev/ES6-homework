@@ -9,9 +9,9 @@ import globals from 'rollup-plugin-node-globals';
 
 export default {
     external: ['react'],
-    input: 'src/LoginForm/LoginForm.jsx',
+    input: 'LoginForm.jsx',
     output: {
-        file: 'dist/index.js',
+        file: 'index.js',
         format: 'es',
         name: 'LoginForm',
         sourceMap: 'inline',
@@ -26,7 +26,7 @@ export default {
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
         scss({
-            output: 'dist/css/bundle.css',
+            output: 'scss/bundle.css',
         }),
         resolve({
             jsnext: true,
