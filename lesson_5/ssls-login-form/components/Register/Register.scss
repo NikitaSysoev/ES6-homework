@@ -1,0 +1,15 @@
+@import "ssls-login-form/scss/LoginForm.scss";
+
+.ssls-login-form-footer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .ssls-login-form-text {
+    @extend %flex-center;
+    span {
+      color: $attention-color;
+    }
+  }
+  .ssls-login-form-btn {
+    padding: 0 20px;
+  }
+}

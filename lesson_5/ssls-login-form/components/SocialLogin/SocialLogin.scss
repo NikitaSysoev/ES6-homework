@@ -1,0 +1,47 @@
+@import 'ssls-login-form/scss/LoginForm.scss';
+
+.ssls-login-form-middle {
+    @extend %flex-center;
+    padding: 25px 20px 0;
+    flex-direction: column;
+    .ssls-login-form-header {
+      @extend %flex-center;
+      p {
+        margin-bottom: 30px;
+      }
+    }
+  
+    .ssls-login-form-social {
+      @extend %flex-between;
+      background-color: $info-colour;
+      button {
+        width: 100%;
+        margin-right: 5px;
+        color: $default-color;
+        height: 35px;
+        border-radius: 5px;
+        border: 1px solid;
+        cursor: pointer;
+      }
+      button:focus {
+        outline: none;
+      }
+      button:last-child {
+        margin-right: 0;
+      }
+      .ssls-btn-google {
+        background-color: rgb(211, 71, 56);
+      }
+      .ssls-btn-facebook {
+        background-color: rgb(63, 89, 146);
+      }
+      .ssls-btn-twitter {
+        background-color: rgb(34, 171, 241);
+      }
+    }
+  
+    .ssls-login-form-border {
+      margin-top: 40px;
+      border-bottom: 1px solid rgb(217, 217, 217);
+    }
+  }

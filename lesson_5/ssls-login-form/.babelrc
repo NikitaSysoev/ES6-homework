@@ -8,6 +8,5 @@
         "modules": false
       }
     ]
-  ],
-  "plugins": ["external-helpers"]
+  ]
 }
