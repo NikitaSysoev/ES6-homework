@@ -9,7 +9,7 @@ import globals from "rollup-plugin-node-globals";
 
 export default {
   external: ["react"],
-  input: "LoginForm.jsx",
+  input: "src/LoginForm.jsx",
   output: [
     {
       file: "dist/bundle.es.js",
