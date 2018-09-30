@@ -1,6 +1,8 @@
 import React from "react";
 
 import "./Login.scss";
+import LoginInput from "../LoginInput";
+import PasswordInput from "../PasswordInput";
 
 const Login = () => {
   return (
@@ -9,18 +11,8 @@ const Login = () => {
         <div className="ssls-login-form-header">
           <h1>Login</h1>
         </div>
-        <div className="ssls-login-form-inputs">
-          <input
-            type="text"
-            className="ssls-login-form-input"
-            placeholder="User name"
-          />
-          <input
-            type="password"
-            className="ssls-login-form-input"
-            placeholder="****"
-          />
-        </div>
+        <LoginInput />
+        <PasswordInput />
         <div className="ssls-login-form-remember">
           <div>
             <input type="checkbox" />

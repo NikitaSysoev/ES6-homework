@@ -85,3 +85,17 @@ $attention-color: rgb(217, 40, 58) !default;
   @extend %ssls-login-wrapper;
   border-radius: 0 0 5px 5px;
 }
+
+.ssls-login-form-btnGroup {
+  @extend %flex-center;
+  margin-top: 20px;
+  .ssls-login-form-btn {
+    @extend %ssls-btn;
+    &:hover,
+    &:focus,
+    &:active,
+    &:focus:active {
+      @extend %ssls-btn;
+    }
+  }
+}

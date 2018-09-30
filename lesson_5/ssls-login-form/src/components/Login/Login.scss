@@ -1,64 +1,36 @@
-@import 'ssls-login-form/src/main.scss';
-
-.ssls-login-form-btnGroup {
-  @extend %flex-center;
-  margin-top: 20px;
-  .ssls-login-form-btn {
-    @extend %ssls-btn;
-    &:hover, &:focus, &:active, &:focus:active {
-      @extend %ssls-btn;
-    }
-  }
-}
+@import "ssls-login-form/src/components/main.scss";
 
 .ssls-login-form-head {
-    @extend %flex-column;
-    border-radius: 5px;
-    padding: 0 40px 30px;
-    background-color: $default-color;
-    .ssls-login-form-header {
-      @extend %flex-center;
-      h1 {
-        margin: 20px 0;
-      }
-    }
-
-    .ssls-login-form-inputs {
-      @extend %flex-column;
-      .ssls-login-form-input {
-        @extend %ssls-form-control;
-        &:first-child {
-          height: 35px;
-        }
-        &:last-child {
-          height: 40px;
-          margin-bottom: 10px;
-        }
-        &:not(:first-child) {
-          margin-top: 15px;
-        }
-      }
-    }
-
-    .ssls-login-form-remember {
-      @extend %flex-between;
-      a {
-        text-decoration: none;
-        color: $attention-color;
-      }
-      div {
-        display: flex;
-        p {
-          color: rgb(185, 185, 185);
-          font-weight: 500;
-          margin-left: 5px;
-        }
-        input {
-          margin-top: 3px;
-        }
-      }
-    }
-    .ssls-login-form-btn {
-      padding: 0 10px;
+  @extend %flex-column;
+  border-radius: 5px;
+  padding: 0 40px 30px;
+  background-color: $default-color;
+  .ssls-login-form-header {
+    @extend %flex-center;
+    h1 {
+      margin: 20px 0;
     }
   }
+
+  .ssls-login-form-remember {
+    @extend %flex-between;
+    a {
+      text-decoration: none;
+      color: $attention-color;
+    }
+    div {
+      display: flex;
+      p {
+        color: rgb(185, 185, 185);
+        font-weight: 500;
+        margin-left: 5px;
+      }
+      input {
+        margin-top: 3px;
+      }
+    }
+  }
+  .ssls-login-form-btn {
+    padding: 0 10px;
+  }
+}
