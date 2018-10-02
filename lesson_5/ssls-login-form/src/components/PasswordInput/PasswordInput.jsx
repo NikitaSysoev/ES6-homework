@@ -7,7 +7,13 @@ const PasswordInput = props => {
     <div className="PasswordInput">
       <input
         type="password"
-        className="ssls-login-form-input"
+        className={
+          !props.correct && typeof props.correct === "object"
+            ? "ssls-login-form-input"
+            : !props.correct
+              ? "ssls-login-form-input ssls-error"
+              : "ssls-login-form-input ssls-success"
+        }
         placeholder="******"
         name="password"
         onChange={props.handleChange}

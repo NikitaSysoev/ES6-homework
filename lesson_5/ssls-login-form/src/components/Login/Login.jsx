@@ -12,7 +12,7 @@ export default class Login extends Component {
       password: "",
       remember: false,
       isLoginCorrect: null,
-      isPasswordCorrect: null,
+      isPasswordCorrect: null
     };
     this.handleChange = this.handleChange.bind(this);
     this.login = this.login.bind(this);
@@ -20,7 +20,34 @@ export default class Login extends Component {
   }
 
   login() {
-    console.log(this.state);
+    const { login, password } = this.state;
+    if (login.trim() && password.trim()) {
+      this.setState({
+        isLoginCorrect: true,
+        isPasswordCorrect: true
+      });
+    }
+
+    if (!login.trim() && !password.trim()) {
+      this.setState({
+        isLoginCorrect: false,
+        isPasswordCorrect: false
+      });
+    }
+
+    if (!login.trim() && password.trim()) {
+      this.setState({
+        isLoginCorrect: false,
+        isPasswordCorrect: true
+      });
+    }
+
+    if (login.trim() && !password.trim()) {
+      this.setState({
+        isLoginCorrect: true,
+        isPasswordCorrect: false
+      });
+    }
   }
 
   handleChange(e) {
@@ -36,15 +63,23 @@ export default class Login extends Component {
   }
 
   render() {
-    const { login, password } = this.state;
+    const { login, password, isLoginCorrect, isPasswordCorrect } = this.state;
     return (
       <div className="ssls-login-wrapper">
         <div className="ssls-login-form-head">
           <div className="ssls-login-form-header">
             <h1>Login</h1>
           </div>
-          <LoginInput handleChange={this.handleChange} login={login} />
-          <PasswordInput handleChange={this.handleChange} password={password} />
+          <LoginInput
+            handleChange={this.handleChange}
+            login={login}
+            correct={isLoginCorrect}
+          />
+          <PasswordInput
+            handleChange={this.handleChange}
+            password={password}
+            correct={isPasswordCorrect}
+          />
           <div className="ssls-login-form-remember">
             <div>
               <input type="checkbox" onChange={this.remember} />
