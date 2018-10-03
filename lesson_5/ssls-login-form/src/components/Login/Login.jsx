@@ -21,33 +21,10 @@ export default class Login extends Component {
 
   login() {
     const { login, password } = this.state;
-    if (login.trim() && password.trim()) {
-      this.setState({
-        isLoginCorrect: true,
-        isPasswordCorrect: true
-      });
-    }
-
-    if (!login.trim() && !password.trim()) {
-      this.setState({
-        isLoginCorrect: false,
-        isPasswordCorrect: false
-      });
-    }
-
-    if (!login.trim() && password.trim()) {
-      this.setState({
-        isLoginCorrect: false,
-        isPasswordCorrect: true
-      });
-    }
-
-    if (login.trim() && !password.trim()) {
-      this.setState({
-        isLoginCorrect: true,
-        isPasswordCorrect: false
-      });
-    }
+    this.setState({
+      isLoginCorrect: login.trim() ? true : false,
+      isPasswordCorrect: password.trim() ? true : false,
+    });
   }
 
   handleChange(e) {
@@ -73,12 +50,12 @@ export default class Login extends Component {
           <LoginInput
             handleChange={this.handleChange}
             login={login}
-            correct={isLoginCorrect}
+            isValid={isLoginCorrect}
           />
           <PasswordInput
             handleChange={this.handleChange}
             password={password}
-            correct={isPasswordCorrect}
+            isValid={isPasswordCorrect}
           />
           <div className="ssls-login-form-remember">
             <div>

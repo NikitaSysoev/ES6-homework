@@ -8,7 +8,7 @@ import builtins from "rollup-plugin-node-builtins";
 import globals from "rollup-plugin-node-globals";
 
 export default {
-  external: ["react"],
+  external: ["react", "classnames"],
   input: "src/LoginForm.jsx",
   output: [
     {

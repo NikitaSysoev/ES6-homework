@@ -29,6 +29,7 @@
     "react-dom": "^16.5.2"
   },
   "peerDependencies": {
+    "classnames": "^2.2.6",
     "react": "^16.5.2"
   }
 }

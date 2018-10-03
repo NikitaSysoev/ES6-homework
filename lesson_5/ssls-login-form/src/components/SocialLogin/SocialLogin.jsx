@@ -1,7 +1,7 @@
 import React from "react";
 
-import './SocialLogin.scss';
-import SocialButtons from '../SocialButtons';
+import "./SocialLogin.scss";
+import SocialButton from "../SocialButton";
 
 const SocialLogin = () => {
   return (
@@ -13,7 +13,11 @@ const SocialLogin = () => {
         <div className="ssls-login-form-header">
           <p>With your social media account</p>
         </div>
-        <SocialButtons/>
+        <div className="ssls-login-form-social">
+          <SocialButton netName={"twitter"} />
+          <SocialButton netName={"facebook"} />
+          <SocialButton netName={"google"} />
+        </div>
         <div className="ssls-login-form-border" />
       </div>
     </div>

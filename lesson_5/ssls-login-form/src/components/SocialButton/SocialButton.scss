@@ -1,0 +1,24 @@
+@import "ssls-login-form/src/components/main.scss";
+
+.ssls-social-button {
+  width: 100%;
+  margin-right: 5px;
+  color: $default-color;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+
+.ssls-btn-google {
+  background-color: rgb(211, 71, 56);
+}
+.ssls-btn-facebook {
+  background-color: rgb(63, 89, 146);
+}
+.ssls-btn-twitter {
+  background-color: rgb(34, 171, 241);
+}

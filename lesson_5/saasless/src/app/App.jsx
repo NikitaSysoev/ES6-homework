@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "./App.scss";
 
-import LoginForm from 'ssls-login-form';
+import LoginForm from "ssls-login-form";
 
 import "ssls-login-form/scss/LoginForm.scss";
 // import './custom.scss';
@@ -13,7 +13,7 @@ export default class App extends Component {
       <div className="ssls-app">
         <header className="ssls-header" />
         <div className="ssls-content">
-          <LoginForm/>
+          <LoginForm />
         </div>
         <footer className="ssls-footer" />
       </div>
