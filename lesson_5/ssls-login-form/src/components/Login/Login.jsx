@@ -22,8 +22,8 @@ export default class Login extends Component {
   login() {
     const { login, password } = this.state;
     this.setState({
-      isLoginCorrect: login.trim() ? true : false,
-      isPasswordCorrect: password.trim() ? true : false,
+      isLoginCorrect: login.trim() ? "valid" : "inValid",
+      isPasswordCorrect: password.trim() ? "valid" : "inValid"
     });
   }
 
@@ -48,12 +48,12 @@ export default class Login extends Component {
             <h1>Login</h1>
           </div>
           <LoginInput
-            handleChange={this.handleChange}
+            onChange={this.handleChange}
             login={login}
             isValid={isLoginCorrect}
           />
           <PasswordInput
-            handleChange={this.handleChange}
+            onChange={this.handleChange}
             password={password}
             isValid={isPasswordCorrect}
           />

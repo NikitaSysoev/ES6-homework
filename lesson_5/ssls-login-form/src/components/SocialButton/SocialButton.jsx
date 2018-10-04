@@ -9,7 +9,7 @@ const SocialButton = props => {
   });
   return (
     <button type="button" className={classSocial}>
-      {props.netName}
+      {props.children}
     </button>
   );
 };

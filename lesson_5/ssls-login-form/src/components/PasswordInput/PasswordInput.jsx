@@ -5,8 +5,8 @@ import "./PasswordInput.scss";
 
 const PasswordInput = props => {
   const inputClass = classNames("ssls-login-form-input", {
-    "ssls-error": !props.isValid && typeof props.isValid === "boolean",
-    "ssls-success": props.isValid
+    "ssls-error": props.isValid === "inValid",
+    "ssls-success": props.isValid === "valid"
   });
   return (
     <div className="PasswordInput">
@@ -15,7 +15,7 @@ const PasswordInput = props => {
         className={inputClass}
         placeholder="******"
         name="password"
-        onChange={props.handleChange}
+        onChange={props.onChange}
         value={props.password}
       />
     </div>

@@ -14,9 +14,9 @@ const SocialLogin = () => {
           <p>With your social media account</p>
         </div>
         <div className="ssls-login-form-social">
-          <SocialButton netName={"twitter"} />
-          <SocialButton netName={"facebook"} />
-          <SocialButton netName={"google"} />
+          <SocialButton netName={"twitter"}>Twitter</SocialButton>
+          <SocialButton netName={"facebook"}>Facebook</SocialButton>
+          <SocialButton netName={"google"}>Google</SocialButton>
         </div>
         <div className="ssls-login-form-border" />
       </div>
