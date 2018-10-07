@@ -1,14 +1,14 @@
-@import "ssls-login-form/src/components/Login/Login.scss";
+@import "../src/components/Login/Login.scss";
 
-@import "ssls-login-form/src/components/LoginInput/LoginInput.scss";
+@import "../src/components/LoginInput/LoginInput.scss";
 
-@import "ssls-login-form/src/components/PasswordInput/PasswordInput.scss";
+@import "../src/components/PasswordInput/PasswordInput.scss";
 
-@import "ssls-login-form/src/components/SocialButton/SocialButton.scss";
+@import "../src/components/SocialButton/SocialButton.scss";
 
-@import "ssls-login-form/src/components/SocialLogin/SocialLogin.scss";
+@import "../src/components/SocialLogin/SocialLogin.scss";
 
-@import "ssls-login-form/src/components/Register/Register.scss";
+@import "../src/components/Register/Register.scss";
 
 .ssls-login-form-btnGroup {
     @extend %flex-center;

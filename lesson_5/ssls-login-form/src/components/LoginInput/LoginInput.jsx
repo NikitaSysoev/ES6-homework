@@ -5,8 +5,8 @@ import "./LoginInput.scss";
 
 const LoginInput = props => {
   const inputClass = classNames("ssls-login-form-input", {
-    "ssls-error": props.isValid === "inValid",
-    "ssls-success": props.isValid === "valid"
+    "ssls-error": !props.isValid,
+    "ssls-success": props.isValid && props.isValid !== 'empty'
   });
   return (
     <div className="LoginInput">

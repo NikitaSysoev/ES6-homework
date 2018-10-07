@@ -11,8 +11,8 @@ export default class Login extends Component {
       login: "",
       password: "",
       remember: false,
-      isLoginCorrect: null,
-      isPasswordCorrect: null
+      isLoginCorrect: 'empty',
+      isPasswordCorrect: 'empty'
     };
     this.handleChange = this.handleChange.bind(this);
     this.login = this.login.bind(this);
@@ -22,8 +22,8 @@ export default class Login extends Component {
   login() {
     const { login, password } = this.state;
     this.setState({
-      isLoginCorrect: login.trim() ? "valid" : "inValid",
-      isPasswordCorrect: password.trim() ? "valid" : "inValid"
+      isLoginCorrect: !!login.trim(),
+      isPasswordCorrect: !!password.trim()
     });
   }
 
