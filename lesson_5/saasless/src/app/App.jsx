@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import "./App.scss";
 
 import LoginForm from "ssls-login-form";
-// import "ssls-login-form/scss/LoginForm.scss";
-import './custom.scss';
+import "ssls-login-form/src/LoginForm.scss";
+// import './custom.scss';
 
 export default class App extends Component {
   render() {
