@@ -14,11 +14,10 @@ export default class Login extends Component {
       loginValid: null,
       passwordValid: null
     };
-    this.handleChange = this.handleChange.bind(this);
     this.formSubmit = this.formSubmit.bind(this);
     this.remember = this.remember.bind(this);
-    this.validateLogin = this.validateLogin.bind(this);
-    this.validatePassword = this.validatePassword.bind(this);
+    this.handleLoginChange = this.handleLoginChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
 
   formSubmit(e) {
@@ -26,46 +25,34 @@ export default class Login extends Component {
     console.log(this.state);
   }
 
-  handleChange(e) {
+  handleLoginChange(e) {
+    let login = e.target.value.trim();
     this.setState({
-      [e.target.name]: e.target.value
+      login,
+      loginValid: this.validateLogin(login)
     });
   }
 
-  validateLogin(e) {
-    this.handleChange(e);
-    let value = e.target.value.trim();
-    if (e.target.name === "login" && value.length > 2) {
-      this.setState({
-        loginValid: true
-      });
-    } else if (e.target.name === "login" && value.length > 0) {
-      this.setState({
-        loginValid: false
-      });
-    } else {
-      this.setState({
-        loginValid: null
-      });
-    }
+  handlePasswordChange(e) {
+    let password = e.target.value.trim();
+    this.setState({
+      password,
+      passwordValid: this.validatePassword(password)
+    });
   }
 
-  validatePassword(e) {
-    this.handleChange(e);
-    let value = e.target.value.trim();
-    if (e.target.name === "password" && value.length > 5) {
-      this.setState({
-        passwordValid: true
-      });
-    } else if (e.target.name === "password" && value.length > 0) {
-      this.setState({
-        passwordValid: false
-      });
-    } else {
-      this.setState({
-        passwordValid: null
-      });
+  validateLogin(login) {
+    if (login.length > 5) {
+      return true;
     }
+    return false;
+  }
+
+  validatePassword(password) {
+    if (password.length > 5) {
+      return true;
+    }
+    return false;
   }
 
   remember() {
@@ -83,12 +70,12 @@ export default class Login extends Component {
             <h1>Login</h1>
           </div>
           <LoginInput
-            onChange={this.validateLogin}
+            onChange={this.handleLoginChange}
             login={login}
             isValid={loginValid}
           />
           <PasswordInput
-            onChange={this.validatePassword}
+            onChange={this.handlePasswordChange}
             password={password}
             isValid={passwordValid}
           />
