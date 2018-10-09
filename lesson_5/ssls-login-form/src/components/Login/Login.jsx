@@ -11,26 +11,61 @@ export default class Login extends Component {
       login: "",
       password: "",
       remember: false,
-      isLoginCorrect: 'empty',
-      isPasswordCorrect: 'empty'
+      loginValid: null,
+      passwordValid: null
     };
     this.handleChange = this.handleChange.bind(this);
-    this.login = this.login.bind(this);
+    this.formSubmit = this.formSubmit.bind(this);
     this.remember = this.remember.bind(this);
+    this.validateLogin = this.validateLogin.bind(this);
+    this.validatePassword = this.validatePassword.bind(this);
   }
 
-  login() {
-    const { login, password } = this.state;
-    this.setState({
-      isLoginCorrect: !!login.trim(),
-      isPasswordCorrect: !!password.trim()
-    });
+  formSubmit(e) {
+    e.preventDefault();
+    console.log(this.state);
   }
 
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
+  }
+
+  validateLogin(e) {
+    this.handleChange(e);
+    let value = e.target.value.trim();
+    if (e.target.name === "login" && value.length > 2) {
+      this.setState({
+        loginValid: true
+      });
+    } else if (e.target.name === "login" && value.length > 0) {
+      this.setState({
+        loginValid: false
+      });
+    } else {
+      this.setState({
+        loginValid: null
+      });
+    }
+  }
+
+  validatePassword(e) {
+    this.handleChange(e);
+    let value = e.target.value.trim();
+    if (e.target.name === "password" && value.length > 5) {
+      this.setState({
+        passwordValid: true
+      });
+    } else if (e.target.name === "password" && value.length > 0) {
+      this.setState({
+        passwordValid: false
+      });
+    } else {
+      this.setState({
+        passwordValid: null
+      });
+    }
   }
 
   remember() {
@@ -40,22 +75,22 @@ export default class Login extends Component {
   }
 
   render() {
-    const { login, password, isLoginCorrect, isPasswordCorrect } = this.state;
+    const { login, password, loginValid, passwordValid } = this.state;
     return (
       <div className="ssls-login-wrapper">
-        <div className="ssls-login-form-head">
+        <form onSubmit={this.formSubmit} className="ssls-login-form-head">
           <div className="ssls-login-form-header">
             <h1>Login</h1>
           </div>
           <LoginInput
-            onChange={this.handleChange}
+            onChange={this.validateLogin}
             login={login}
-            isValid={isLoginCorrect}
+            isValid={loginValid}
           />
           <PasswordInput
-            onChange={this.handleChange}
+            onChange={this.validatePassword}
             password={password}
-            isValid={isPasswordCorrect}
+            isValid={passwordValid}
           />
           <div className="ssls-login-form-remember">
             <div>
@@ -66,14 +101,14 @@ export default class Login extends Component {
           </div>
           <div className="ssls-login-form-btnGroup">
             <button
-              type="button"
+              type="submit"
               className="ssls-login-form-btn"
-              onClick={this.login}
+              disabled={!(loginValid && passwordValid)}
             >
               Log in
             </button>
           </div>
-        </div>
+        </form>
       </div>
     );
   }

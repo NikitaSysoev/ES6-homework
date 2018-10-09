@@ -5,8 +5,8 @@ import "./LoginInput.scss";
 
 const LoginInput = props => {
   const inputClass = classNames("ssls-login-form-input", {
-    "ssls-error": !props.isValid,
-    "ssls-success": props.isValid && props.isValid !== 'empty'
+    "ssls-error": !props.isValid && props.isValid !== null,
+    "ssls-success": props.isValid
   });
   return (
     <div className="LoginInput">
@@ -16,7 +16,7 @@ const LoginInput = props => {
         placeholder="User name"
         name="login"
         onChange={props.onChange}
-        value={props.login}
+        value={props.login.trim()}
       />
     </div>
   );

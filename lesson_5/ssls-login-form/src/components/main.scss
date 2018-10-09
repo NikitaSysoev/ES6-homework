@@ -57,3 +57,25 @@ $attention-color: rgb(217, 40, 58) !default;
     margin: 0 0 3px;
   }
 }
+
+%ssls-input-error {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px $attention-color;
+  &:hover,
+  &:focus,
+  &:active,
+  &:focus:active {
+    border-color: $attention-color;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px $attention-color;
+  }
+}
+
+%ssls-input-success {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px green;
+  &:hover,
+  &:focus,
+  &:active,
+  &:focus:active {
+    border-color: green;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px green;
+  }
+}
