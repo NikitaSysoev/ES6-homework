@@ -13,42 +13,38 @@ export default class Login extends Component {
       loginValid: null,
       passwordValid: null
     };
-    this.formSubmit = this.formSubmit.bind(this);
-    this.remember = this.remember.bind(this);
-    this.handleLoginChange = this.handleLoginChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
 
-  formSubmit(e) {
+  formSubmit = e => {
     e.preventDefault();
     console.log(this.state);
-  }
+  };
 
-  handleLoginChange(e) {
+  handleLoginChange = e => {
     let login = e.target.value.trim();
     this.setState({
       login,
       loginValid: this.validateLength(login, 5)
     });
-  }
+  };
 
-  handlePasswordChange(e) {
+  handlePasswordChange = e => {
     let password = e.target.value.trim();
     this.setState({
       password,
       passwordValid: this.validateLength(password, 6)
     });
-  }
+  };
 
-  validateLength(value, length) {
+  validateLength = (value, length) => {
     return value.length > length;
-  }
+  };
 
-  remember() {
+  remember = () => {
     this.setState({
       remember: !this.state.remember
     });
-  }
+  };
 
   render() {
     const { login, password, loginValid, passwordValid } = this.state;
