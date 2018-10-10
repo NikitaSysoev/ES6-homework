@@ -1,9 +1,0 @@
-@import "../main.scss";
-
-.LoginInput {
-  @extend %flex-column;
-  .ssls-login-form-input {
-    @extend %ssls-form-control;
-    height: 35px;
-  }
-}

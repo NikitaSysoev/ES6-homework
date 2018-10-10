@@ -1,25 +1,25 @@
 import React from "react";
 import classNames from "classnames";
 
-import "./LoginInput.scss";
+import './TextInput.scss';
 
-const LoginInput = props => {
+const TextInput = props => {
   const inputClass = classNames("ssls-login-form-input", {
     "ssls-error": !props.isValid && props.isValid !== null,
     "ssls-success": props.isValid
   });
   return (
-    <div className="LoginInput">
+    <div className="TextInput">
       <input
-        type="text"
+        type={props.type}
         className={inputClass}
-        placeholder="User name"
-        name="login"
+        placeholder={props.placeholder}
+        name={props.name}
         onChange={props.onChange}
-        value={props.login.trim()}
+        value={props.value.trim()}
       />
     </div>
   );
 };
 
-export default LoginInput;
+export default TextInput;

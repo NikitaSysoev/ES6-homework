@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 
 import "./Login.scss";
-import LoginInput from "../LoginInput";
-import PasswordInput from "../PasswordInput";
+import TextInput from "../TextInput";
 
 export default class Login extends Component {
   constructor(props) {
@@ -29,7 +28,7 @@ export default class Login extends Component {
     let login = e.target.value.trim();
     this.setState({
       login,
-      loginValid: this.validateLogin(login)
+      loginValid: this.validateLength(login, 5)
     });
   }
 
@@ -37,22 +36,12 @@ export default class Login extends Component {
     let password = e.target.value.trim();
     this.setState({
       password,
-      passwordValid: this.validatePassword(password)
+      passwordValid: this.validateLength(password, 6)
     });
   }
 
-  validateLogin(login) {
-    if (login.length > 5) {
-      return true;
-    }
-    return false;
-  }
-
-  validatePassword(password) {
-    if (password.length > 5) {
-      return true;
-    }
-    return false;
+  validateLength(value, length) {
+    return value.length > length;
   }
 
   remember() {
@@ -69,14 +58,20 @@ export default class Login extends Component {
           <div className="ssls-login-form-header">
             <h1>Login</h1>
           </div>
-          <LoginInput
+          <TextInput
             onChange={this.handleLoginChange}
-            login={login}
+            type="text"
+            placeholder="User Name"
+            name="login"
+            value={login}
             isValid={loginValid}
           />
-          <PasswordInput
+          <TextInput
             onChange={this.handlePasswordChange}
-            password={password}
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={password}
             isValid={passwordValid}
           />
           <div className="ssls-login-form-remember">
