@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import "./Login.scss";
 import TextInput from "../TextInput";
 
+const createLengthValidator = length => value => value.length > length;
+const loginValidator = createLengthValidator(5);
+const passwordValidator = createLengthValidator(6);
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -17,14 +21,26 @@ export default class Login extends Component {
 
   formSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    const { login, password, remember } = this.state;
+    fetch("https://putsreq.com/bdgKyqGFJUoskYOjxRt4", {
+      method: "POST",
+      headers: {
+        Accept: "multipart/form-data",
+        "Content-Type": "multipart/form-data"
+      },
+      body: JSON.stringify({
+        login,
+        password,
+        remember
+      }).replace(/{|}/gi, "")
+    });
   };
 
   handleLoginChange = e => {
     let login = e.target.value.trim();
     this.setState({
       login,
-      loginValid: this.validateLength(login, 5)
+      loginValid: loginValidator(login)
     });
   };
 
@@ -32,12 +48,8 @@ export default class Login extends Component {
     let password = e.target.value.trim();
     this.setState({
       password,
-      passwordValid: this.validateLength(password, 6)
+      passwordValid: passwordValidator(password)
     });
-  };
-
-  validateLength = (value, length) => {
-    return value.length > length;
   };
 
   remember = () => {
