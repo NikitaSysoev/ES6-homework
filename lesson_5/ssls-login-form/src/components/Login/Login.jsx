@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+require("babel-core/register");
+require("babel-polyfill");
+
 import "./Login.scss";
 import TextInput from "../TextInput";
 
@@ -34,6 +37,20 @@ export default class Login extends Component {
         remember
       }).replace(/{|}/gi, "")
     });
+
+    const loginRequestMock = async (login, password) => {
+      if (login === "test@test.com") {
+        password === "12345678"
+          ? console.log("success")
+          : console.log("wrong password");
+      } else {
+        console.log("wrong login");
+      }
+    };
+
+
+    loginRequestMock(login, password);
+
   };
 
   handleLoginChange = e => {
