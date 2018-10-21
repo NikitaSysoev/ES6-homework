@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import './TextInput.scss';
+import "./TextInput.scss";
 
 const TextInput = props => {
   const inputClass = classNames("ssls-login-form-input", {
@@ -18,6 +18,9 @@ const TextInput = props => {
         onChange={props.onChange}
         value={props.value.trim()}
       />
+      {props.error ? (
+        <p className={"ssls-text-error"}>{props.textError}</p>
+      ) : null}
     </div>
   );
 };

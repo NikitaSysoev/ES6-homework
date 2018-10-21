@@ -10,6 +10,9 @@ const createLengthValidator = length => value => value.length > length;
 const loginValidator = createLengthValidator(5);
 const passwordValidator = createLengthValidator(6);
 
+const textLoginError = 'Введеный вами логин нет в нашей базе данных';
+const textPasswordError = 'Введеный вами пароль не соответвует вашемум логину';
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -18,39 +21,42 @@ export default class Login extends Component {
       password: "",
       remember: false,
       loginValid: null,
-      passwordValid: null
+      passwordValid: null,
+      loginError: null,
+      passwordError: null
     };
   }
 
   formSubmit = e => {
     e.preventDefault();
     const { login, password, remember } = this.state;
-    fetch("https://putsreq.com/bdgKyqGFJUoskYOjxRt4", {
-      method: "POST",
-      headers: {
-        Accept: "multipart/form-data",
-        "Content-Type": "multipart/form-data"
-      },
-      body: JSON.stringify({
-        login,
-        password,
-        remember
-      }).replace(/{|}/gi, "")
-    });
+    // fetch("https://putsreq.com/bdgKyqGFJUoskYOjxRt4", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "multipart/form-data",
+    //     "Content-Type": "multipart/form-data"
+    //   },
+    //   body: JSON.stringify({
+    //     login,
+    //     password,
+    //     remember
+    //   }).replace(/{|}/gi, "")
+    // });
 
-    const loginRequestMock = async (login, password) => {
-      if (login === "test@test.com") {
-        password === "12345678"
-          ? console.log("success")
-          : console.log("wrong password");
-      } else {
-        console.log("wrong login");
-      }
-    };
+    // const loginRequestMock = async login => {
+    //   let loginError = (await login) === "NikitaSysoev" ? false : true;
+    //   return loginError;
+    // };
 
+    const loginError = login === 'NikitaSysoev' ? false : true;
+    const passwordError = !loginError && password === '12345678' ? false : true;
 
-    loginRequestMock(login, password);
+    this.setState({
+      loginError,
+      passwordError
+    })
 
+    console.log(this.state);
   };
 
   handleLoginChange = e => {
@@ -76,7 +82,7 @@ export default class Login extends Component {
   };
 
   render() {
-    const { login, password, loginValid, passwordValid } = this.state;
+    const { login, password, loginValid, passwordValid, loginError, passwordError } = this.state;
     return (
       <div className="ssls-login-wrapper">
         <form onSubmit={this.formSubmit} className="ssls-login-form-head">
@@ -90,6 +96,8 @@ export default class Login extends Component {
             name="login"
             value={login}
             isValid={loginValid}
+            error = {loginError}
+            textError = {textLoginError}
           />
           <TextInput
             onChange={this.handlePasswordChange}
@@ -98,6 +106,8 @@ export default class Login extends Component {
             name="password"
             value={password}
             isValid={passwordValid}
+            textError = {textPasswordError}
+            error={passwordError}
           />
           <div className="ssls-login-form-remember">
             <div>
