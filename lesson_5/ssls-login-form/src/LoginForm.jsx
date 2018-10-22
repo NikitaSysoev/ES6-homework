@@ -7,7 +7,14 @@ import Register from "./components/Register";
 const LoginForm = props => {
   return (
     <div>
-      <Login />
+      <Login
+        textPasswordError={props.textPasswordError}
+        textLoginError={props.textLoginError}
+        loginValidator={props.loginValidator}
+        passwordValidator={props.passwordValidator}
+        loginError={props.loginError}
+        passwordError={props.passwordError}
+      />
       <SocialLogin />
       <Register />
     </div>

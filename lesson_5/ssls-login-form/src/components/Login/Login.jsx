@@ -1,17 +1,7 @@
 import React, { Component } from "react";
 
-require("babel-core/register");
-require("babel-polyfill");
-
 import "./Login.scss";
 import TextInput from "../TextInput";
-
-const createLengthValidator = length => value => value.length > length;
-const loginValidator = createLengthValidator(5);
-const passwordValidator = createLengthValidator(6);
-
-const textLoginError = 'Введеный вами логин нет в нашей базе данных';
-const textPasswordError = 'Введеный вами пароль не соответвует вашемум логину';
 
 export default class Login extends Component {
   constructor(props) {
@@ -29,38 +19,17 @@ export default class Login extends Component {
 
   formSubmit = e => {
     e.preventDefault();
-    const { login, password, remember } = this.state;
-    // fetch("https://putsreq.com/bdgKyqGFJUoskYOjxRt4", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "multipart/form-data",
-    //     "Content-Type": "multipart/form-data"
-    //   },
-    //   body: JSON.stringify({
-    //     login,
-    //     password,
-    //     remember
-    //   }).replace(/{|}/gi, "")
-    // });
-
-    // const loginRequestMock = async login => {
-    //   let loginError = (await login) === "NikitaSysoev" ? false : true;
-    //   return loginError;
-    // };
-
-    const loginError = login === 'NikitaSysoev' ? false : true;
-    const passwordError = !loginError && password === '12345678' ? false : true;
-
+    const { login, password } = this.state;
+    const {loginError, passwordError} = this.props;
     this.setState({
-      loginError,
-      passwordError
-    })
-
-    console.log(this.state);
+      loginError: loginError(login),
+      passwordError: passwordError(password) || loginError(login)
+    });
   };
 
   handleLoginChange = e => {
     let login = e.target.value.trim();
+    const { loginValidator } = this.props;
     this.setState({
       login,
       loginValid: loginValidator(login)
@@ -69,6 +38,7 @@ export default class Login extends Component {
 
   handlePasswordChange = e => {
     let password = e.target.value.trim();
+    const { passwordValidator } = this.props;
     this.setState({
       password,
       passwordValid: passwordValidator(password)
@@ -82,7 +52,15 @@ export default class Login extends Component {
   };
 
   render() {
-    const { login, password, loginValid, passwordValid, loginError, passwordError } = this.state;
+    const {
+      login,
+      password,
+      loginValid,
+      passwordValid,
+      loginError,
+      passwordError
+    } = this.state;
+    const { textPasswordError, textLoginError } = this.props;
     return (
       <div className="ssls-login-wrapper">
         <form onSubmit={this.formSubmit} className="ssls-login-form-head">
@@ -96,8 +74,8 @@ export default class Login extends Component {
             name="login"
             value={login}
             isValid={loginValid}
-            error = {loginError}
-            textError = {textLoginError}
+            error={loginError}
+            textError={textLoginError}
           />
           <TextInput
             onChange={this.handlePasswordChange}
@@ -106,7 +84,7 @@ export default class Login extends Component {
             name="password"
             value={password}
             isValid={passwordValid}
-            textError = {textPasswordError}
+            textError={textPasswordError}
             error={passwordError}
           />
           <div className="ssls-login-form-remember">
